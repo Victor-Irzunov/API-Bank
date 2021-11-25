@@ -1,7 +1,8 @@
+$warning-color: #f0932b;
+$dark-color: #909090;
 .wrapper {
-  padding: 10px;
+  padding: 75px 10px 10px 10px;
   margin-left: 82px;
-  padding-top: 75px;
   background: var(--second-bg-color);
   transition: margin-left .5s;
 }
@@ -75,11 +76,21 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+
+table tr{
+  position: relative;
+}
+
 table tr:hover{
-  background: #eb4d4b;
+  left: 10px;
+
 }
 table tr:last-child:hover{
   background: #23242D;
+  left: 0;
+}
+table tr:hover td{
+  transform: scale(1.1);
 }
 table td {
   border-top: 1px solid var(--second-bg-color);
@@ -91,6 +102,9 @@ table th {
   border-bottom: 1px solid var(--second-bg-color);
   padding: 15px 12px;
   text-align: left;
+}
+.fa-times{
+  color: #eb4d4b;
 }
 
 .dot i {
@@ -124,3 +138,7 @@ table th {
   height: 0;
   position: absolute;
 }
+.table-trCurrency{
+  color: $warning-color;
+}
+

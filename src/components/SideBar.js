@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import './SideBar.scss'
+import { Context } from "../index"
 
 
 const SideBar = () => {
+    const { currency } = useContext(Context)
+    const [addCurrency, setAddCurrency] = useState('')
+    const [delCurrency, setDelCurrency] = useState('')
 
 
 
+    const addCurrencyFu = () => {
+        currency.setAddCurrency((addCurrency).toUpperCase())
+        setAddCurrency('')
+    }
+    const delCurrencyFu = () => {
+        currency.setAddCurrency((addCurrency).toUpperCase())
+        setAddCurrency('')
+    }
 
 
     return (
@@ -26,23 +38,45 @@ const SideBar = () => {
                         <div>
                             <i className="fab fa-accusoft"></i>
                         </div>
-                        <span>Lorem</span>
+                        <span>Отслеживать валюту</span>
+                        <input
+                            type="text"
+                            className="input-currency"
+                            value={addCurrency}
+                            placeholder="usd"
+                            onChange={event => setAddCurrency(event.target.value)}
+                        />
+                        <button
+                            className="input-currencyBtn"
+                            onClick={addCurrencyFu}
+                        >Добавить</button>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
                     <a href="#" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-tasks"></i>
+                            <i className="fa fa-window-close" aria-hidden="true"></i>
                         </div>
-                        <span>Morbi</span>
+                        <span>Удалить валюту</span>
+                        <input
+                            type="text"
+                            className="input-del-currency"
+                            value={delCurrency}
+                            placeholder="eur"
+                            onChange={event => setDelCurrency(event.target.value)}
+                        />
+                        <button
+                            className="input-currencyBtn"
+                            onClick={addCurrencyFu}
+                        >Удалить</button>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://select.by/kurs/" target="_blank" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-spinner"></i>
                         </div>
-                        <span>Praesent</span>
+                        <span>Курс в других банках</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">

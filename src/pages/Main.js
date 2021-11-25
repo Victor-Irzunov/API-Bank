@@ -16,6 +16,7 @@ import { Line } from 'react-chartjs-2';
 import faker from 'faker';
 import SideBar from "../components/SideBar";
 import {exchangeRate} from "../apiBank/http";
+import Sorting from "../components/Sorting";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -35,7 +36,7 @@ const Main = observer(() => {
     const [loading, setLoading] = useState(true)
     const [isReload, setIsReload] = useState(false)
 
-    console.log('currency:::', currency);
+    console.log('currency.addCurrency::: ', currency.addCurrency);
 
 
     const options = {
@@ -86,6 +87,12 @@ const Main = observer(() => {
         alert("Вы скопировали: " + copyText.value);
     }
 
+    const closeCurrency = id => {
+        let newCurrency = currency.currency.filter(obj => obj.Cur_ID !== id)
+        currency.setCurrency(newCurrency)
+    }
+
+
     return (
         <>
             <SideBar />
@@ -135,7 +142,9 @@ const Main = observer(() => {
                                 <h3>
                                     Курсы валют
                                 </h3>
-                                {/*<i className="fas fa-ellipsis-h" />*/}
+
+                                <Sorting />
+
                                 <div onClick={() => setIsReload(i=>!i)}>
                                     <i className="fa fa-undo" aria-hidden="true"></i>
                                 </div>
@@ -150,12 +159,16 @@ const Main = observer(() => {
                                         <th>Курс</th>
                                         <th>Дата</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {currency.currency.map((obj, count) => {
                                         return(
-                                            <tr key={obj.Cur_ID}>
+                                            <tr
+                                                key={obj.Cur_ID}
+                                                className={obj.Cur_Abbreviation === currency.addCurrency ? 'table-trCurrency' : ''}
+                                            >
                                                 <td>{count+1}</td>
                                                 <td>{obj.Cur_Name}</td>
                                                 <td>{obj.Cur_Scale} {obj.Cur_Abbreviation}</td>
@@ -167,16 +180,15 @@ const Main = observer(() => {
                                                 </td>
                                                 <td>{(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}</td>
                                                 <td onClick={ ()=>{
-                                                    copyFunction(`Валюта: ${obj.Cur_Name}; ${obj.Cur_Scale} ${obj.Cur_Abbreviation} = ${obj.Cur_OfficialRate} на дату: ${(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}`)
-                                                    // copyFunction()
+                                                    copyFunction(`Валюта: ${obj.Cur_Name}; ${obj.Cur_Scale} ${obj.Cur_Abbreviation} = ${obj.Cur_OfficialRate}; курс на: ${(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}`)
                                                 }}>
                                                     <input
                                                         type="text"
-                                                        // value={'Валюта: ' + obj.Cur_Name +'; '+obj.Cur_Scale +obj.Cur_Abbreviation +' = '+ obj.Cur_OfficialRate+ ' на дату: '+ (obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}
-                                                        //    value={`Валюта: ${obj.Cur_Name}; ${obj.Cur_Scale} ${obj.Cur_Abbreviation} = ${obj.Cur_OfficialRate} на дату: ${(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}`}
-                                                        // value={''}
                                                         id="myInput"/>
                                                     <i className="fa fa-clone" aria-hidden="true"></i>
+                                                </td>
+                                                <td onClick={() => closeCurrency(obj.Cur_ID)}>
+                                                    <i className="fa fa-times" aria-hidden="true"></i>
                                                 </td>
                                             </tr>
                                         )

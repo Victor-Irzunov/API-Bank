@@ -12,7 +12,7 @@ $danger-color: #eb4d4b;
 }
 
 .sidebar:hover {
-  width: 250px;
+  width: 350px;
 }
 
 .sidebar-nav {
@@ -70,5 +70,27 @@ $danger-color: #eb4d4b;
 }
 
 .sidebar-expand .sidebar {
-  width: 250px;
+  width: 370px;
+}
+.input-currency{
+  width: 42px;
+  margin-left: 10px;
+  height: 25px;
+  font-size: 21px;
+  border: 1px solid #212529;
+}
+.input-del-currency{
+  width: 42px;
+  margin-left: 13px;
+  height: 25px;
+  font-size: 21px;
+  border: 1px solid #212529;
+}
+.input-currencyBtn{
+  margin-left: 20px;
+  padding: 5px 6px;
+  margin-right: 10px;
+  border: 1px solid $danger-color;
+  background: transparent;
+  color: $danger-color;
 }

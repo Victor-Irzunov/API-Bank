@@ -3,6 +3,7 @@ import { makeAutoObservable } from "mobx";
 export default class CurrencyStore{
     constructor() {
         this._currency = []
+        this._addCurrency = ''
 
         makeAutoObservable(this)
     }
@@ -10,7 +11,14 @@ export default class CurrencyStore{
     setCurrency(data) {
         this._currency = data
     }
+    setAddCurrency(data) {
+        this._addCurrency = data
+    }
+
     get currency() {
         return this._currency
+    }
+    get addCurrency() {
+        return this._addCurrency
     }
 }
