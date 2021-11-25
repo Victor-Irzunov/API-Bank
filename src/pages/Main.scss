@@ -1,0 +1,126 @@
+.wrapper {
+  padding: 10px;
+  margin-left: 82px;
+  padding-top: 75px;
+  background: var(--second-bg-color);
+  transition: margin-left .5s;
+}
+
+.sidebar-expand .wrapper {
+  margin-left: 250px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.row:after, .row:before {
+  box-sizing: border-box;
+}
+
+[class*="col-"] {
+  padding: 10px;
+}
+
+.counter {
+  padding: 16px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.couner i {
+  font-size: 50px;
+}
+
+.card {
+  background: var(--main-bg-color);
+  color: var(--main-color);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.card-header {
+  padding: 15px 30px;
+  border-bottom: 1px solid var(--second-bg-color);
+  position: relative;
+}
+
+.card-header i {
+  color: var(--main-color);
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.card-header i:hover {
+  cursor: pointer;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.card-content {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table tr:hover{
+  background: #eb4d4b;
+}
+table tr:last-child:hover{
+  background: #23242D;
+}
+table td {
+  border-top: 1px solid var(--second-bg-color);
+  padding: 15px;
+}
+
+table th {
+  border-top: 1px solid var(--second-bg-color);
+  border-bottom: 1px solid var(--second-bg-color);
+  padding: 15px 12px;
+  text-align: left;
+}
+
+.dot i {
+  display: inline-block;
+  width: .385rem;
+  height: .385rem;
+  margin-right: .385rem;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.progress-wrapper {
+  margin-bottom: 15px;
+}
+
+.float-right {
+  float: right;
+}
+
+.progress {
+  height: 10px;
+  overflow: hidden;
+  display: flex;
+  font-size: .75rem;
+  background: rgba(0,0,0,0.05);
+  border-radius: .25rem;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+#myInput{
+  width: 0;
+  height: 0;
+  position: absolute;
+}
