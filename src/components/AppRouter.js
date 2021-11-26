@@ -7,11 +7,7 @@ const AppRouter = () => {
         <Routes>
             <Route path='/' element={<Main/>} exact />
         </Routes>
-
-
     )
 }
 
 export default AppRouter;
-
-// exact - the path must match

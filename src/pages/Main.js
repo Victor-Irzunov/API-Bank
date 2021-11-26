@@ -17,6 +17,8 @@ import faker from 'faker';
 import SideBar from "../components/SideBar";
 import {exchangeRate} from "../apiBank/http";
 import Sorting from "../components/Sorting";
+import Video from "../components/Video";
+import Loading from "../components/Loading";
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -36,9 +38,6 @@ const Main = observer(() => {
     const [loading, setLoading] = useState(true)
     const [isReload, setIsReload] = useState(false)
 
-    console.log('currency.addCurrency::: ', currency.addCurrency);
-
-
     const options = {
         responsive: true,
         plugins: {
@@ -47,37 +46,38 @@ const Main = observer(() => {
             },
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                text: 'График курса популярных валют',
             },
         },
-    };
+    }
 
-    const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+    const labels = ['Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 
     const data = {
         labels,
         datasets: [
             {
-                label: 'Dataset 1',
-                data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+                label: 'USD',
+                data: labels.map(() => faker.datatype.number({ min: -2.9, max: 2.9 })),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
-                label: 'Dataset 2',
-                data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+                label: 'EUR',
+                data: labels.map(() => faker.datatype.number({ min: -2.9, max: 2.9 })),
                 borderColor: 'rgb(53, 162, 235)',
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ],
-    };
+    }
 
     useEffect(() => {
-        exchangeRate().then(data => {
-            console.log('data:: ', data)
+        exchangeRate()
+            .then(data => {
             currency.setCurrency(Array.from(data.data))
-        }).finally(() => setLoading(false))
-    }, [isReload])
+        })
+            .finally(() => setLoading(false))
+    }, [isReload, currency])
 
     function copyFunction(text) {
         const copyText = document.getElementById("myInput");
@@ -92,6 +92,9 @@ const Main = observer(() => {
         currency.setCurrency(newCurrency)
     }
 
+    if(loading) {
+        return <Loading />
+    }
 
     return (
         <>
@@ -104,7 +107,7 @@ const Main = observer(() => {
                                 <i className="fas fa-tasks" />
                             </p>
                             <h3>100+</h3>
-                            <p>To do</p>
+                            <p>надо сделать</p>
                         </div>
                     </div>
                     <div className="col-3 col-m-6 col-sm-6">
@@ -113,7 +116,7 @@ const Main = observer(() => {
                                 <i className="fas fa-spinner" />
                             </p>
                             <h3>100+</h3>
-                            <p>In progress</p>
+                            <p>в процессе</p>
                         </div>
                     </div>
                     <div className="col-3 col-m-6 col-sm-6">
@@ -122,7 +125,7 @@ const Main = observer(() => {
                                 <i className="fas fa-check-circle" />
                             </p>
                             <h3>100+</h3>
-                            <p>Completed</p>
+                            <p>завершенные</p>
                         </div>
                     </div>
                     <div className="col-3 col-m-6 col-sm-6">
@@ -131,7 +134,7 @@ const Main = observer(() => {
                                 <i className="fas fa-bug" />
                             </p>
                             <h3>100+</h3>
-                            <p>Issues</p>
+                            <p>проблемы</p>
                         </div>
                     </div>
                 </div>
@@ -146,7 +149,7 @@ const Main = observer(() => {
                                 <Sorting />
 
                                 <div onClick={() => setIsReload(i=>!i)}>
-                                    <i className="fa fa-undo" aria-hidden="true"></i>
+                                    <i className="fa fa-undo" aria-hidden="true"/>
                                 </div>
                             </div>
                             <div className="card-content">
@@ -158,8 +161,8 @@ const Main = observer(() => {
                                         <th>Кол-во единиц,<br /> буквенный код</th>
                                         <th>Курс</th>
                                         <th>Дата</th>
-                                        <th></th>
-                                        <th></th>
+                                        <th>&ensp;</th>
+                                        <th>&ensp;</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -185,10 +188,10 @@ const Main = observer(() => {
                                                     <input
                                                         type="text"
                                                         id="myInput"/>
-                                                    <i className="fa fa-clone" aria-hidden="true"></i>
+                                                    <i className="fa fa-clone" aria-hidden="true"/>
                                                 </td>
                                                 <td onClick={() => closeCurrency(obj.Cur_ID)}>
-                                                    <i className="fa fa-times" aria-hidden="true"></i>
+                                                    <i className="fa fa-times" aria-hidden="true"/>
                                                 </td>
                                             </tr>
                                         )
@@ -200,18 +203,21 @@ const Main = observer(() => {
                             </div>
                         </div>
                     </div>
+
+
+
                     <div className="col-4 col-m-12 col-sm-12">
                         <div className="card">
                             <div className="card-header">
                                 <h3>
-                                    Progress bar
+                                    Индикатор выполнения
                                 </h3>
                                 <i className="fas fa-ellipsis-h" />
                             </div>
                             <div className="card-content">
                                 <div className="progress-wrapper">
                                     <p>
-                                        Less than 1 hour
+                                        Менее 1 часа
                                         <span className="float-right">50%</span>
                                     </p>
                                     <div className="progress">
@@ -220,7 +226,7 @@ const Main = observer(() => {
                                 </div>
                                 <div className="progress-wrapper">
                                     <p>
-                                        1 - 3 hours
+                                        1 - 3 часа
                                         <span className="float-right">60%</span>
                                     </p>
                                     <div className="progress">
@@ -229,7 +235,7 @@ const Main = observer(() => {
                                 </div>
                                 <div className="progress-wrapper">
                                     <p>
-                                        More than 3 hours
+                                        Более 3 часов
                                         <span className="float-right">40%</span>
                                     </p>
                                     <div className="progress">
@@ -238,7 +244,7 @@ const Main = observer(() => {
                                 </div>
                                 <div className="progress-wrapper">
                                     <p>
-                                        More than 6 hours
+                                        Более 6 часов
                                         <span className="float-right">20%</span>
                                     </p>
                                     <div className="progress">
@@ -247,25 +253,25 @@ const Main = observer(() => {
                                 </div>
                             </div>
                         </div>
+
+                        <Video />
+
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 col-m-12 col-sm-12">
                         <div className="card">
                             <div className="card-header">
-                                <h3>
-                                    Chartjs
-                                </h3>
                             </div>
                             <div className="card-content">
-                                <Line options={options} data={data} />
+                                <Line options={options} type='line' data={data} />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </>
-    );
-});
+    )
+})
 
-export default Main;
+export default Main

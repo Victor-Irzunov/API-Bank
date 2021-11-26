@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { Context } from "../index"
+import './Sorting.scss'
 
 const Sorting = () => {
     const { currency } = useContext(Context)
     const [isCurrency, setIsCurrency] = useState(false)
     const [isCurrencyArrow, setIsCurrencyArrow] = useState(false)
-
 
     function sortingCurrency() {
         setIsCurrencyArrow(true)
@@ -18,27 +18,25 @@ const Sorting = () => {
     }
 
 
-
     return (
-        <div>
-            <p className='sorting-box'>
+        <div className='sorting-box'>
+            <p>
+                <i className="fa fa-filter fad-filter" aria-hidden="true"></i>
                 Сортировать: &ensp;
                 {isCurrencyArrow ?
                     <span
                         onClick={sortingCurrency}
                     >
-						по возврастанию
+						по курсу
                         {isCurrency ? '↑' : '↓'}
 					</span>
                     :
                     <span
                         onClick={sortingCurrency}
                     >
-						по убыванию
+						по курсу
 					</span>
                 }
-
-
             </p>
         </div>
     );

@@ -1,0 +1,69 @@
+.video-block{
+    position: relative;
+}
+.video-block:after{
+    content: 'X';
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 15px;
+    text-align: center;
+    height: 15px;
+    background: #fff;
+    border: 1px solid #000;
+}
+.video-block video{
+    width: 100%;
+    height: 100%;
+}
+.video-title{
+    position: absolute;
+    width: 100%;
+    bottom: 6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+
+}
+.video-text{
+    position: absolute;
+     width: 100%;
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fe3a3a;
+    font-size: 20px;
+    text-align: center;
+}
+.video-text:before{
+    content: '';
+    position: absolute;
+    width: 65px;
+    height: 2px;
+    bottom: -8px;
+    left: 118px;
+    background-color: #fe3a3a;
+}
+@media (max-width: 1350px){
+    .video-title {
+        font-size: 26px;
+    }
+    .video-text{
+        font-size: 15px;
+    }
+}
+@media (max-width: 1200px){
+    .video-title {
+        font-size: 22px;
+    }
+    .video-text{
+        font-size: 14px;
+    }
+}
+@media (max-width: 1130px){
+    .video-title {
+        font-size: 21px;
+    }
+}

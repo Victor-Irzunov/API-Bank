@@ -70,7 +70,7 @@ $danger-color: #eb4d4b;
 }
 
 .sidebar-expand .sidebar {
-  width: 370px;
+  width: 350px;
 }
 .input-currency{
   width: 42px;
@@ -78,6 +78,7 @@ $danger-color: #eb4d4b;
   height: 25px;
   font-size: 21px;
   border: 1px solid #212529;
+  background: #ccc;
 }
 .input-del-currency{
   width: 42px;
@@ -85,6 +86,7 @@ $danger-color: #eb4d4b;
   height: 25px;
   font-size: 21px;
   border: 1px solid #212529;
+  background: #ccc;
 }
 .input-currencyBtn{
   margin-left: 20px;
@@ -94,3 +96,7 @@ $danger-color: #eb4d4b;
   background: transparent;
   color: $danger-color;
 }
+.input-currencyBtn.inBtn{
+    padding: 5px 10px;
+}
+

@@ -8,23 +8,22 @@ const SideBar = () => {
     const [addCurrency, setAddCurrency] = useState('')
     const [delCurrency, setDelCurrency] = useState('')
 
-
-
     const addCurrencyFu = () => {
         currency.setAddCurrency((addCurrency).toUpperCase())
         setAddCurrency('')
     }
-    const delCurrencyFu = () => {
-        currency.setAddCurrency((addCurrency).toUpperCase())
-        setAddCurrency('')
-    }
 
+    const delCurrencyFu = () => {
+        let newCurrency = currency.currency.filter(obj => obj.Cur_Abbreviation !== (delCurrency).toUpperCase())
+        currency.setCurrency(newCurrency)
+        setDelCurrency('')
+    }
 
     return (
         <div className="sidebar">
             <ul className="sidebar-nav">
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="/#" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-tachometer-alt"></i>
                         </div>
@@ -34,7 +33,7 @@ const SideBar = () => {
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link active">
+                    <a href="/#" className="sidebar-nav-link active">
                         <div>
                             <i className="fab fa-accusoft"></i>
                         </div>
@@ -53,7 +52,7 @@ const SideBar = () => {
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="/#" className="sidebar-nav-link">
                         <div>
                             <i className="fa fa-window-close" aria-hidden="true"></i>
                         </div>
@@ -66,13 +65,13 @@ const SideBar = () => {
                             onChange={event => setDelCurrency(event.target.value)}
                         />
                         <button
-                            className="input-currencyBtn"
-                            onClick={addCurrencyFu}
+                            className="input-currencyBtn inBtn"
+                            onClick={delCurrencyFu}
                         >Удалить</button>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="https://select.by/kurs/" target="_blank" className="sidebar-nav-link">
+                    <a href="https://select.by/kurs/" target="_blank" rel="noreferrer"className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-spinner"></i>
                         </div>
@@ -80,59 +79,59 @@ const SideBar = () => {
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://www.nbrb.by/today/about/maptargets" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-check-circle"></i>
                         </div>
-                        <span>Pellentesque</span>
+                        <span>Карта основных задач</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://www.nbrb.by/system/banks/financialposition/capitalchange" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-bug"></i>
                         </div>
-                        <span>Morbi</span>
+                        <span>Отчет об изменении</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://www.nbrb.by/system/banks/financialposition/cashflowsreport" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-chart-line"></i>
                         </div>
-                        <span>Praesent</span>
+                        <span>Отчет о движении</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="/#" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-book-open"></i>
                         </div>
-                        <span>Pellentesque</span>
+                        <span>Системой мгновенных платежей</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://www.nbrb.by/statistics/financialcapability" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-adjust"></i>
                         </div>
-                        <span>Morbi</span>
+                        <span>Показатели финансовой устойчивости</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://www.nbrb.by/publications/finstabrep" className="sidebar-nav-link">
                         <div>
                             <i className="fab fa-algolia"></i>
                         </div>
-                        <span>Praesent</span>
+                        <span>Аналитическое обозрение</span>
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="#" className="sidebar-nav-link">
+                    <a href="https://www.nbrb.by/statistics/balpay" className="sidebar-nav-link">
                         <div>
                             <i className="fas fa-audio-description"></i>
                         </div>
-                        <span>Pellentesque</span>
+                        <span>Статистическая информация</span>
                     </a>
                 </li>
             </ul>

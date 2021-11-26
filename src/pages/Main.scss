@@ -8,7 +8,7 @@ $dark-color: #909090;
 }
 
 .sidebar-expand .wrapper {
-  margin-left: 250px;
+  margin-left: 350px;
 }
 
 .row {
@@ -26,13 +26,15 @@ $dark-color: #909090;
 }
 
 .counter {
-  padding: 16px;
+  padding: 30px;
   text-align: center;
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
+.counter p{
+     margin-bottom: 10px;
+}
 .couner i {
   font-size: 50px;
 }
@@ -49,15 +51,17 @@ $dark-color: #909090;
   padding: 15px 30px;
   border-bottom: 1px solid var(--second-bg-color);
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 
-.card-header i {
-  color: var(--main-color);
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
+// .card-header i {
+//   color: var(--main-color);
+//   position: absolute;
+//   right: 30px;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
 .card-header i:hover {
   cursor: pointer;
@@ -65,6 +69,7 @@ $dark-color: #909090;
 
 .card-header h3 {
   margin: 0;
+  display: inline;
 }
 
 .card-content {
@@ -83,10 +88,17 @@ table tr{
 
 table tr:hover{
   left: 10px;
+ -webkit-box-shadow: 2px 5px 16px 0px #000, 5px 5px 15px 5px rgba(0,0,0,0);
+ box-shadow: 2px 5px 16px 0px #000, 5px 5px 15px 5px rgba(0,0,0,0);
 
 }
+.fa{
+    cursor: pointer;
+}
 table tr:last-child:hover{
-  background: #23242D;
+  background: var(--main-bg-color);
+  transform: scale(1);
+  box-shadow: 2px 5px 16px 0px #0000, 5px 5px 15px 5px #0000;
   left: 0;
 }
 table tr:hover td{
@@ -117,9 +129,11 @@ table th {
 }
 
 .progress-wrapper {
-  margin-bottom: 15px;
+  margin-bottom: 40px;
 }
-
+.progress-wrapper p{
+    margin-bottom: 8px;
+}
 .float-right {
   float: right;
 }
@@ -141,4 +155,5 @@ table th {
 .table-trCurrency{
   color: $warning-color;
 }
+
 
