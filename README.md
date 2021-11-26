@@ -1,3 +1,4 @@
+cd API-Bank  -->
 npm install
 
 ### `npm start`
