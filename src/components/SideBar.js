@@ -1,9 +1,9 @@
-import React, {useContext, useState} from 'react';
+import React, {memo, useContext, useState} from 'react'
 import './SideBar.scss'
 import { Context } from "../index"
 
 
-const SideBar = () => {
+const SideBar = memo(() => {
     const { currency } = useContext(Context)
     const [addCurrency, setAddCurrency] = useState('')
     const [delCurrency, setDelCurrency] = useState('')
@@ -25,7 +25,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="/#" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-tachometer-alt"></i>
+                            <i className="fas fa-tachometer-alt"/>
                         </div>
                         <span>
 						Dashboard
@@ -35,7 +35,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="/#" className="sidebar-nav-link active">
                         <div>
-                            <i className="fab fa-accusoft"></i>
+                            <i className="fab fa-accusoft"/>
                         </div>
                         <span>Отслеживать валюту</span>
                         <input
@@ -54,7 +54,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="/#" className="sidebar-nav-link">
                         <div>
-                            <i className="fa fa-window-close" aria-hidden="true"></i>
+                            <i className="fa fa-window-close" aria-hidden="true"/>
                         </div>
                         <span>Удалить валюту</span>
                         <input
@@ -71,9 +71,9 @@ const SideBar = () => {
                     </a>
                 </li>
                 <li className="sidebar-nav-item">
-                    <a href="https://select.by/kurs/" target="_blank" rel="noreferrer"className="sidebar-nav-link">
+                    <a href="https://select.by/kurs/" target="_blank" rel="noreferrer" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-spinner"></i>
+                            <i className="fas fa-spinner"/>
                         </div>
                         <span>Курс в других банках</span>
                     </a>
@@ -81,7 +81,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="https://www.nbrb.by/today/about/maptargets" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-check-circle"></i>
+                            <i className="fas fa-check-circle"/>
                         </div>
                         <span>Карта основных задач</span>
                     </a>
@@ -89,7 +89,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="https://www.nbrb.by/system/banks/financialposition/capitalchange" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-bug"></i>
+                            <i className="fas fa-bug"/>
                         </div>
                         <span>Отчет об изменении</span>
                     </a>
@@ -97,7 +97,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="https://www.nbrb.by/system/banks/financialposition/cashflowsreport" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-chart-line"></i>
+                            <i className="fas fa-chart-line"/>
                         </div>
                         <span>Отчет о движении</span>
                     </a>
@@ -105,7 +105,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="/#" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-book-open"></i>
+                            <i className="fas fa-book-open"/>
                         </div>
                         <span>Системой мгновенных платежей</span>
                     </a>
@@ -113,7 +113,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="https://www.nbrb.by/statistics/financialcapability" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-adjust"></i>
+                            <i className="fas fa-adjust"/>
                         </div>
                         <span>Показатели финансовой устойчивости</span>
                     </a>
@@ -121,7 +121,7 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="https://www.nbrb.by/publications/finstabrep" className="sidebar-nav-link">
                         <div>
-                            <i className="fab fa-algolia"></i>
+                            <i className="fab fa-algolia"/>
                         </div>
                         <span>Аналитическое обозрение</span>
                     </a>
@@ -129,14 +129,14 @@ const SideBar = () => {
                 <li className="sidebar-nav-item">
                     <a href="https://www.nbrb.by/statistics/balpay" className="sidebar-nav-link">
                         <div>
-                            <i className="fas fa-audio-description"></i>
+                            <i className="fas fa-audio-description"/>
                         </div>
                         <span>Статистическая информация</span>
                     </a>
                 </li>
             </ul>
         </div>
-    );
-};
+    )
+})
 
-export default SideBar;
+export default SideBar

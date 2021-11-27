@@ -34,43 +34,38 @@ $danger-color: #eb4d4b;
   align-items: center;
   color: var(--main-color);
   text-decoration: none;
+  i {
+    font-size: 1.5rem;
+    color: var(--second-color);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  div {
+    min-width: 82px;
+    height: 50px;
+    position: relative;
+  }
 }
-
-.sidebar-nav-link i {
-  font-size: 1.5rem;
-  color: var(--second-color);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.sidebar-nav-link div {
-  min-width: 82px;
-  height: 50px;
-  position: relative;
-}
-
 .sidebar-nav-link:hover {
   background: var(--second-bg-color);
 }
-
 .sidebar-nav-link.active {
   background: var(--second-bg-color);
   color: $danger-color;
+   div {
+    border-left: 5px solid $danger-color;
+  }
+  i {
+    color: $danger-color;
+    margin-left: -5px;
+  }
 }
-
-.sidebar-nav-link.active div {
-  border-left: 5px solid $danger-color;
-}
-
-.sidebar-nav-link.active i {
-  color: $danger-color;
-  margin-left: -5px;
-}
-
-.sidebar-expand .sidebar {
-  width: 350px;
+.sidebar-expand {
+    .sidebar {
+      width: 350px;
+    }
 }
 .input-currency{
   width: 42px;
@@ -96,7 +91,13 @@ $danger-color: #eb4d4b;
   background: transparent;
   color: $danger-color;
 }
+.input-currencyBtn:hover{
+    color: #6ab04c;
+    border: 1px solid #6ab04c;
+}
 .input-currencyBtn.inBtn{
     padding: 5px 10px;
+    color: red;
+    border: 1px solid red;
 }
 

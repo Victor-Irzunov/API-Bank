@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Context } from "../index"
 import { observer } from "mobx-react-lite"
 import './Main.scss'
@@ -50,9 +50,7 @@ const Main = observer(() => {
             },
         },
     }
-
     const labels = ['Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
-
     const data = {
         labels,
         datasets: [
@@ -72,19 +70,23 @@ const Main = observer(() => {
     }
 
     useEffect(() => {
-        exchangeRate()
-            .then(data => {
-            currency.setCurrency(Array.from(data.data))
-        })
-            .finally(() => setLoading(false))
+        try {
+            exchangeRate()
+                .then(data => {
+                    currency.setCurrency(Array.from(data.data))
+                })
+                .finally(() => setLoading(false))
+        }catch(e){
+            console.log('err', e)
+        }
     }, [isReload, currency])
 
-    function copyFunction(text) {
-        const copyText = document.getElementById("myInput");
-        copyText.value = text
-        copyText.select();
-        document.execCommand("copy");
-        alert("Вы скопировали: " + copyText.value);
+    const copyFunction = text => {
+      navigator.clipboard.writeText(text)
+          .then(() => alert(`Вы скопировали:
+           ${text}`))
+          .catch(err => console.log('err: ', err))
+
     }
 
     const closeCurrency = id => {
@@ -183,11 +185,10 @@ const Main = observer(() => {
                                                 </td>
                                                 <td>{(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}</td>
                                                 <td onClick={ ()=>{
-                                                    copyFunction(`Валюта: ${obj.Cur_Name}; ${obj.Cur_Scale} ${obj.Cur_Abbreviation} = ${obj.Cur_OfficialRate}; курс на: ${(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}`)
+                                                    copyFunction(`Валюта: ${obj.Cur_Name};
+                                                     ${obj.Cur_Scale} ${obj.Cur_Abbreviation} = ${obj.Cur_OfficialRate};
+                                                      курс на: ${(obj.Date).slice(0, 10).replace(/^(\d+)-(\d+)-(\d+)$/, `$3.$2.$1`)}`)
                                                 }}>
-                                                    <input
-                                                        type="text"
-                                                        id="myInput"/>
                                                     <i className="fa fa-clone" aria-hidden="true"/>
                                                 </td>
                                                 <td onClick={() => closeCurrency(obj.Cur_ID)}>

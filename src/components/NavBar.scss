@@ -35,8 +35,10 @@ $danger-color: #eb4d4b;
   cursor: pointer;
 }
 
-.navbar-nav i {
-  font-size: 1.4rem;
+.navbar-nav {
+    i {
+      font-size: 1.4rem;
+    }
 }
 
 .nav-right {
@@ -51,34 +53,38 @@ $danger-color: #eb4d4b;
 .logo-dark{
   filter: invert(1);
 }
-.navbar-search input {
-  background: var(--second-bg-color);
-  border: none;
-  padding: 12px 50px 12px 50px;
-  width: 100%;
-  outline: none;
-  color: var(--main-color);
-  border-radius: 20px;
+.navbar-search  {
+    input{
+      background: var(--second-bg-color);
+      border: none;
+      padding: 12px 50px 12px 50px;
+      width: 100%;
+      outline: none;
+      color: var(--main-color);
+      border-radius: 20px;
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      color: var(--second-color);
+      cursor: pointer;
+    }
 }
 
-.navbar-search i {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
-  color: var(--second-color);
-  cursor: pointer;
-}
 
 .logo {
   height: 60px;
   padding: 10px;
 }
 
-.avt img {
-  width: 39px;
-  height: 39px;
-  border-radius: 50%;
+.avt {
+    img{
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+}
 }
 
 .avt {
@@ -144,46 +150,39 @@ $danger-color: #eb4d4b;
   align-items: center;
   text-decoration: none;
   color: var(--main-color);
+  div {
+    min-width: 82px;
+    height: 50px;
+    position: relative;
+  }
+  i {
+    font-size: 1.25rem;
+    color: var(--second-color);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  span {
+    font-size: 15px;
+    width: 298px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
-
-.dropdown-menu-link div {
-  min-width: 82px;
-  height: 50px;
-  position: relative;
-}
-
-.dropdown-menu-link i {
-  font-size: 1.25rem;
-  color: var(--second-color);
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.dropdown-menu-link span {
-  font-size: 15px;
-  width: 298px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .dropdown-menu-link span > span {
   font-size: 10px;
 }
-
 .dropdown-menu-link:hover {
   cursor: pointer;
   background: var(--second-bg-color);
 }
-
 .dropdown-menu-header {
   padding: 20px;
   text-align: center;
   border-bottom: 1px solid var(--second-bg-color);
 }
-
 .dropdown-menu-footer {
   padding: 20px;
   text-align: center;

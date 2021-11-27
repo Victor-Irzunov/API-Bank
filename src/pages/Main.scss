@@ -6,11 +6,11 @@ $dark-color: #909090;
   background: var(--second-bg-color);
   transition: margin-left .5s;
 }
-
-.sidebar-expand .wrapper {
-  margin-left: 350px;
+.sidebar-expand {
+    .wrapper {
+      margin-left: 350px;
+    }
 }
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -20,25 +20,22 @@ $dark-color: #909090;
 .row:after, .row:before {
   box-sizing: border-box;
 }
-
 [class*="col-"] {
   padding: 10px;
 }
-
 .counter {
   padding: 30px;
   text-align: center;
   color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  p{
+       margin-bottom: 10px;
+  }
+  i {
+    font-size: 30px;
+  }
 }
-.counter p{
-     margin-bottom: 10px;
-}
-.couner i {
-  font-size: 50px;
-}
-
 .card {
   background: var(--main-bg-color);
   color: var(--main-color);
@@ -53,72 +50,55 @@ $dark-color: #909090;
   position: relative;
   display: flex;
   justify-content: space-between;
+  i:hover {
+    cursor: pointer;
+  }
+  h3 {
+    margin: 0;
+    display: inline;
+  }
 }
-
-// .card-header i {
-//   color: var(--main-color);
-//   position: absolute;
-//   right: 30px;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
-
-.card-header i:hover {
-  cursor: pointer;
-}
-
-.card-header h3 {
-  margin: 0;
-  display: inline;
-}
-
 .card-content {
   padding: 20px;
   overflow-x: auto;
 }
-
 table {
   border-collapse: collapse;
   width: 100%;
-}
-
-table tr{
-  position: relative;
-}
-
-table tr:hover{
-  left: 10px;
- -webkit-box-shadow: 2px 5px 16px 0px #000, 5px 5px 15px 5px rgba(0,0,0,0);
- box-shadow: 2px 5px 16px 0px #000, 5px 5px 15px 5px rgba(0,0,0,0);
-
+  tr{
+    position: relative;
+  }
+  tr:hover{
+    left: 10px;
+   -webkit-box-shadow: 2px 5px 16px 0px #000, 5px 5px 15px 5px rgba(0,0,0,0);
+   box-shadow: 2px 5px 16px 0px #000, 5px 5px 15px 5px rgba(0,0,0,0);
+  }
+  tr:last-child:hover{
+    background: var(--main-bg-color);
+    transform: scale(1);
+    box-shadow: 2px 5px 16px 0px #0000, 5px 5px 15px 5px #0000;
+    left: 0;
+  }
+  tr:hover td{
+    transform: scale(1.1);
+  }
+  td {
+    border-top: 1px solid var(--second-bg-color);
+    padding: 15px;
+  }
+  th {
+    border-top: 1px solid var(--second-bg-color);
+    border-bottom: 1px solid var(--second-bg-color);
+    padding: 15px 12px;
+    text-align: left;
+  }
 }
 .fa{
     cursor: pointer;
 }
-table tr:last-child:hover{
-  background: var(--main-bg-color);
-  transform: scale(1);
-  box-shadow: 2px 5px 16px 0px #0000, 5px 5px 15px 5px #0000;
-  left: 0;
-}
-table tr:hover td{
-  transform: scale(1.1);
-}
-table td {
-  border-top: 1px solid var(--second-bg-color);
-  padding: 15px;
-}
-
-table th {
-  border-top: 1px solid var(--second-bg-color);
-  border-bottom: 1px solid var(--second-bg-color);
-  padding: 15px 12px;
-  text-align: left;
-}
 .fa-times{
   color: #eb4d4b;
 }
-
 .dot i {
   display: inline-block;
   width: .385rem;
@@ -130,14 +110,13 @@ table th {
 
 .progress-wrapper {
   margin-bottom: 40px;
-}
-.progress-wrapper p{
-    margin-bottom: 8px;
+  p{
+      margin-bottom: 8px;
+  }
 }
 .float-right {
   float: right;
 }
-
 .progress {
   height: 10px;
   overflow: hidden;
@@ -148,8 +127,8 @@ table th {
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 }
 #myInput{
-  width: 0;
-  height: 0;
+  width: 0px;
+  height: 0px;
   position: absolute;
 }
 .table-trCurrency{

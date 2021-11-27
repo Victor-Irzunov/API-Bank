@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, {memo, useContext, useState} from 'react'
 import { Context } from "../index"
 import './Sorting.scss'
 
-const Sorting = () => {
+const Sorting = memo(() => {
     const { currency } = useContext(Context)
     const [isCurrency, setIsCurrency] = useState(false)
     const [isCurrencyArrow, setIsCurrencyArrow] = useState(false)
@@ -21,7 +21,7 @@ const Sorting = () => {
     return (
         <div className='sorting-box'>
             <p>
-                <i className="fa fa-filter fad-filter" aria-hidden="true"></i>
+                <i className="fa fa-filter fad-filter" aria-hidden="true" />
                 Сортировать: &ensp;
                 {isCurrencyArrow ?
                     <span
@@ -39,7 +39,7 @@ const Sorting = () => {
                 }
             </p>
         </div>
-    );
-};
+    )
+})
 
-export default Sorting;
+export default Sorting

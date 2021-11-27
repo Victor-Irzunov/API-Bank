@@ -1,8 +1,8 @@
-import React from 'react';
-import video from '../video/video.mov';
-import './Video.scss';
+import React, {memo} from 'react'
+import video from '../video/video.mov'
+import './Video.scss'
 
-const Video = () => {
+const Video = memo(() => {
     return (
         <a href='https://egorovagency.by' target='_blank' rel="noreferrer">
             <div className='video-block'>
@@ -13,7 +13,7 @@ const Video = () => {
                 <span className="video-text ">eCommerce &amp; WebAR</span>
             </div>
         </a>
-    );
-};
+    )
+})
 
-export default Video;
+export default Video

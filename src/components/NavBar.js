@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {memo, useState} from 'react'
 import './NavBar.scss'
 import logo from './assets/logo.png'
 import photo2 from './assets/photo2.jpeg'
 
-const NavBar = ({switchTheme, collapseSidebar}) => {
+const NavBar = memo(({switchTheme, collapseSidebar}) => {
     const [isToggleMenu,setIsToggleMenu] = useState(false)
     const [isToggleAccount ,setIsToggleAccount] = useState(false)
 
@@ -158,6 +158,6 @@ const NavBar = ({switchTheme, collapseSidebar}) => {
             </ul>
         </div>
     )
-}
+})
 
 export default NavBar
